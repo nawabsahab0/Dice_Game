@@ -1,0 +1,168 @@
+// Variables for colors and properties
+$background-image: url('../images/dice_back.jpg'); // Replace with the actual path to your background image
+$background-overlay: rgba(0, 0, 0, 0.6);
+$button-gradient: linear-gradient(to right, #ff7eb3, #ffc878);
+$text-light: #ffffff;
+$text-dark: #333333;
+$dice-shadow-color: rgba(0, 0, 0, 0.2);
+$accent-color: #f9ca24;
+
+// Mixin for Flexbox Centering
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Global Styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background: $background-overlay, url($background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $text-light;
+    min-height: 100vh;
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+}
+
+// Adding a subtle overlay for better contrast
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $background-overlay;
+    z-index: -1;
+}
+
+// Header
+header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+    color: $text-light;
+}
+
+// Game Container
+.game-container {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    @include flex-center;
+    flex-direction: column;
+
+    .scoreboard {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .score {
+            font-size: 1.6rem;
+            font-weight: bold;
+            padding: 8px 15px;
+            background: $accent-color;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px $dice-shadow-color;
+            color: $text-dark;
+        }
+    }
+
+    .dice-container {
+        margin: 15px 0;
+        display: flex;
+        justify-content: space-around;
+
+        .dice-image {
+
+            width: 40px !important; // Smaller width for dice images
+            height: 40px !important; // Smaller height for dice images
+            border-radius: 8%;
+            background: $accent-color;
+            padding: 5px;
+            box-shadow: 0 3px 8px $dice-shadow-color;
+            transition: transform 0.3s;
+
+        }
+
+        img:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+    }
+
+
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        button {
+            flex: 1;
+            margin: 5px;
+            padding: 10px 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: $text-light;
+            background: $button-gradient;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.3s;
+
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            }
+
+            &:disabled {
+                background: gray;
+                cursor: not-allowed;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+// Animations
+@keyframes winner-glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 8px $accent-color, 0 0 15px $accent-color;
+    }
+
+    50% {
+        text-shadow: 0 0 12px $accent-color, 0 0 25px $accent-color;
+    }
+}
+
+#winner-message {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    animation: winner-glow 2s infinite;
+    font-weight: bold;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="css/styles.scss">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascript/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Dice Game</h1>
+        <h2>Author: Mohammad Israeel</h2>
+        <div class="game">
+            <div class="scores">
+                <div id="player-score">Player Score: 0</div>
+                <div id="computer-score">Computer Score: 0</div>
+            </div>
+            <div class="dice-container">
+                <div>
+                    <h3>Player Dice</h3>
+                    <img class="dice-image" id="player-die1" src="images/dice1.png" alt="Player Die 1">
+                    <img class="dice-image" id="player-die2" src="images/dice1.png" alt="Player Die 2">
+                </div>
+                <div>
+                    <h3>Computer Dice</h3>
+                    <img class="dice-image" id="computer-die1" src="images/dice1.png" alt="Computer Die 1">
+                    <img class="dice-image" id="computer-die2" src="images/dice1.png" alt="Computer Die 2">
+                </div>
+            </div>
+            <button id="roll-dice">Roll Dice</button>
+            <button id="reset-game">Reset Game</button>
+            <div id="winner-message"></div>
+        </div>
+    </div>
+</body>
+</html>
