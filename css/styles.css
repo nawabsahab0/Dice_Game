@@ -1,5 +1,6 @@
 body{
   background-image: url(../images/dice_back.jpg);
+  font-family: 'Comic Sans MS', sans-serif;
 }
 .container{
   text-align: center;
