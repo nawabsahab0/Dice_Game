@@ -2,6 +2,7 @@ body{
   background-image: url(../images/dice_back.jpg);
 }
 .container{
+  padding-left: 20%;
   position: absolute;
   left: 25%;
   top: 5%;
